@@ -1,111 +1,353 @@
-{\rtf1\ansi\ansicpg949\cocoartf2822
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+document.addEventListener('DOMContentLoaded', () => {
+    const body = document.body;
 
-\f0\fs24 \cf0 <!DOCTYPE html>\
-<html lang="ko">\
-<head>\
-    <meta charset="UTF-8">\
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">\
-    <title>\uc0\u48520 \u50504 \u54620  \u47560 \u51020  \u45796 \u47336 \u44592 </title>\
-    <link rel="stylesheet" href="style.css">\
-</head>\
-<body class="show-spin">\
-\
-    <svg style="display: none;" xmlns="http://www.w3.org/2000/svg">\
-        <symbol id="logo-svg" viewBox="0 0 136 30" fill="currentColor">\
-            <path d="M76.5664 0C81.1001 5.56319e-07 84.7754 3.71912 84.7754 8.30664V21.5449C84.7753 26.1324 81.1001 29.8516 76.5664 29.8516C72.0327 29.8516 68.3575 26.1324 68.3574 21.5449V8.30664C68.3574 3.71912 72.0327 -1.98177e-07 76.5664 0ZM76.5674 16.7168C73.6824 16.7168 71.343 19.0555 71.3428 21.9404C71.3428 24.8255 73.6823 27.165 76.5674 27.165C79.4523 27.1649 81.791 24.8255 81.791 21.9404C81.7908 19.0556 79.4522 16.7169 76.5674 16.7168Z"/>\
-            <path d="M41.9084 0.515625C42.9688 0.515625 43.9409 0.62904 44.8246 0.855869C45.7083 1.05749 46.39 1.25912 46.8697 1.46075L45.7714 5.95952C45.2664 5.73269 44.7109 5.56887 44.105 5.46806C43.5243 5.34204 42.9814 5.27903 42.4765 5.27903C41.7948 5.27903 41.214 5.37985 40.7343 5.58147C40.2799 5.7579 39.9138 6.00993 39.636 6.33757C39.3835 6.66521 39.1942 7.05586 39.0679 7.50952C38.9669 7.96318 38.9164 8.45464 38.9164 8.98391V9.96684H45.885V14.6546H38.9164V29.8522H33.2734V8.9083C33.2734 6.33757 33.993 4.29611 35.4322 2.78392C36.8966 1.27172 39.0553 0.515625 41.9084 0.515625ZM57.777 0.515625C58.8374 0.515625 59.8095 0.62904 60.6932 0.855869C61.5769 1.05749 62.2586 1.25912 62.7383 1.46075L61.64 5.95952C61.135 5.73269 60.5795 5.56887 59.9736 5.46806C59.3929 5.34204 58.85 5.27903 58.3451 5.27903C57.6634 5.27903 57.0826 5.37985 56.6029 5.58147C56.1485 5.7579 55.7824 6.00993 55.5046 6.33757C55.2521 6.66521 55.0628 7.05586 54.9365 7.50952C54.8355 7.96318 54.785 8.45464 54.785 8.98391V9.96684H61.7536V14.6546H54.785V29.8522H49.142V8.9083C49.142 6.33757 49.8616 4.29611 51.3008 2.78392C52.7652 1.27172 54.9239 0.515625 57.777 0.515625Z"/>\
-            <path d="M103.393 13.4086H110.255L102.535 21.2968L111.053 29.9296H104.031L97.7072 23.289V29.9296H91.6426V2.24023H97.7072V19.1638L103.393 13.4086Z"/>\
-            <path d="M122.852 4.90989L128.4 4.00977V9.82308H135.065V14.4737H128.4V21.4122C128.4 22.5874 128.598 23.525 128.996 24.2251C129.418 24.9252 130.249 25.2753 131.49 25.2753C132.086 25.2753 132.694 25.2253 133.315 25.1252C133.96 25.0002 134.544 24.8377 135.065 24.6377L135.847 28.9883C135.177 29.2633 134.432 29.5009 133.613 29.7009C132.794 29.9009 131.788 30.0009 130.597 30.0009C129.082 30.0009 127.829 29.8009 126.836 29.4008C125.843 28.9758 125.049 28.4007 124.453 27.6756C123.857 26.9255 123.435 26.0254 123.187 24.9752C122.963 23.9251 122.852 22.7624 122.852 21.4872V4.90989Z"/>\
-            <path d="M118.687 29.9342H112.979V10.4961H118.687V29.9342ZM119.224 4.87896C119.224 5.88905 118.879 6.68973 118.189 7.281C117.525 7.84764 116.733 8.13096 115.814 8.13096C114.895 8.13096 114.09 7.84764 113.4 7.281C112.736 6.68973 112.404 5.88905 112.404 4.87896C112.404 3.86886 112.736 3.0805 113.4 2.51386C114.09 1.92259 114.895 1.62695 115.814 1.62695C116.733 1.62695 117.525 1.92259 118.189 2.51386C118.879 3.0805 119.224 3.86886 119.224 4.87896Z"/>\
-            <path d="M14.9253 0C23.1683 0 29.8508 6.68234 29.8508 14.9255C29.8508 23.1687 23.1684 29.8512 14.9253 29.8512C6.68227 29.8512 0 23.1686 0 14.9255C3.73665e-05 6.68237 6.68229 5.04094e-05 14.9253 0ZM14.9253 5.9703C9.97954 5.97036 5.97027 9.97966 5.97022 14.9255C5.97022 19.8714 9.97951 23.8809 14.9253 23.8809C19.8711 23.8809 23.8806 19.8714 23.8806 14.9255C23.8806 9.97963 19.8711 5.9703 14.9253 5.9703Z"/>\
-        </symbol>\
-    </svg>\
-\
-    <div id="daily-counter-container">\
-      </div>\
-\
-    <div class="page-wrapper">\
-        <section id="page-spin" class="page">\
-            <div class="container">\
-                <header>\
-                    <p class="title">\uc0\u48520 \u50504 \u54620  \u47564 \u53372  \u46028 \u47532 \u44592 </p>\
-                    <h1 id="counter-spin" class="counter">0</h1>\
-                    <div class="logo">\
-                        <svg><use href="#logo-svg"></use></svg> </div>\
-                </header>\
-                <main>\
-                    <div class="background-text">SPIN</div>\
-                    <div id="clip-container" class="rotatable idle-animation">\
-                        <svg viewBox="0 0 434 154" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M-4.15988e-06 58.7197C0.000208592 25.9934 27.4983 3.42661e-05 60.7441 -2.65521e-06L356.368 -1.55773e-05C398.863 -1.63912e-05 433.311 34.4488 433.312 76.9433C433.312 119.438 398.863 153.887 356.368 153.887L117.439 153.887C112.966 153.887 109.34 150.26 109.34 145.787C109.34 141.314 112.966 137.688 117.439 137.688L356.368 137.688C389.917 137.688 417.113 110.492 417.113 76.9433C417.113 43.395 389.916 16.1992 356.368 16.1992L60.7441 16.1992C35.8398 16.1993 16.1985 35.5325 16.1982 58.7197C16.1982 81.9071 35.8397 101.241 60.7441 101.241L356.368 101.241C369.788 101.241 380.666 90.3627 380.666 76.9433C380.666 63.5241 369.787 52.6455 356.368 52.6455L68.8437 52.6455C64.3706 52.6455 60.7441 49.019 60.7441 44.5459C60.7444 40.073 64.3708 36.4473 68.8437 36.4473L356.368 36.4473C378.734 36.4472 396.864 54.5778 396.864 76.9433C396.864 99.3089 378.734 117.44 356.368 117.44L60.7441 117.44C27.4981 117.44 -2.72936e-06 91.4463 -4.15988e-06 58.7197Z" fill="white"/></svg>\
-                    </div>\
-                    <div id="btn-spin-next" class="arrow right">\uc0\u9654 </div> </main>\
-            </div>\
-        </section>\
-\
-        <section id="page-throw" class="page">\
-            <div class="container">\
-                <header>\
-                    <p class="title">\uc0\u48520 \u50504 \u54620  \u47564 \u53372  \u53909 \u44592 \u44592 </p>\
-                    <h1 id="counter-throw" class="counter">0</h1>\
-                    <div class="logo">\
-                        <svg><use href="#logo-svg"></use></svg> </div>\
-                </header>\
-                <main id="throw-area">\
-                    <div class="background-text">THROW</div>\
-                    <div id="ruler-container" class="throwable idle-animation">\
-                        <svg viewBox="0 0 865 543" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M35.0006 204.744C35.0009 200.743 38.2311 197.5 42.2153 197.5L821.786 197.5C825.771 197.5 829 200.744 829 204.745L829 338.255C829 342.256 825.77 345.5 821.786 345.5L42.2149 345.5C38.2305 345.5 35.0003 342.257 35.0002 338.256L35.0006 204.744ZM788.18 218.508C784.213 218.508 780.997 221.742 780.997 225.732L780.998 317.285C780.998 321.274 784.213 324.508 788.18 324.508L804.815 324.508C808.781 324.508 811.997 321.274 811.997 317.285L811.998 225.732C811.998 221.742 808.782 218.509 804.815 218.509L788.18 218.508ZM715.181 266.508C711.214 266.508 707.997 269.732 707.997 273.708L707.998 317.309C707.998 321.285 711.213 324.508 715.18 324.508L731.815 324.508C735.782 324.508 738.998 321.285 738.998 317.309L738.998 273.707C738.998 269.732 735.782 266.509 731.815 266.509L715.181 266.508ZM642.412 266.508C638.317 266.508 634.997 269.732 634.997 273.708L634.998 317.31C634.998 321.285 638.317 324.508 642.412 324.508L659.584 324.508C663.678 324.508 666.997 321.285 666.998 317.31L666.998 273.708C666.998 269.732 663.678 266.508 659.583 266.508L642.412 266.508ZM570.18 266.508C566.213 266.508 562.998 269.732 562.998 273.708L562.998 317.309C562.998 321.285 566.213 324.508 570.18 324.509L586.815 324.508C590.782 324.508 593.997 321.285 593.997 317.309L593.998 273.708C593.998 269.732 590.782 266.508 586.815 266.508L570.18 266.508ZM497.18 266.508C493.213 266.508 489.998 269.731 489.998 273.707L489.998 317.309C489.998 321.285 493.214 324.508 497.181 324.508L513.815 324.508C517.782 324.508 520.998 321.285 520.998 317.309L520.997 273.707C520.997 269.731 517.782 266.508 513.815 266.508L497.18 266.508ZM424.181 218.509C420.214 218.509 416.998 221.742 416.998 225.732L416.998 317.285C416.998 321.274 420.214 324.508 424.181 324.508L440.815 324.508C444.782 324.508 447.998 321.274 447.998 317.285L447.998 225.732C447.998 221.742 444.782 218.508 440.816 218.508L424.181 218.509ZM352.181 266.508C348.214 266.508 344.998 269.732 344.998 273.708L344.998 317.309C344.998 321.285 348.214 324.508 352.18 324.508L368.816 324.508C372.782 324.508 375.998 321.285 375.998 317.309L375.998 273.708C375.998 269.732 372.782 266.508 368.815 266.508L352.181 266.508ZM279.18 266.508C275.214 266.508 271.998 269.732 271.998 273.708L271.998 317.309C271.998 321.285 275.214 324.508 279.18 324.509L295.815 324.508C299.782 324.508 302.998 321.285 302.998 317.309L302.998 273.708C302.998 269.732 299.782 266.508 295.816 266.508L279.18 266.508ZM206.18 266.508C202.214 266.508 198.998 269.731 198.998 273.707L198.998 317.309C198.998 321.285 202.214 324.508 206.18 324.508L222.815 324.508C226.782 324.508 229.998 321.285 229.998 317.309L229.998 273.707C229.998 269.731 226.782 266.508 222.816 266.508L206.18 266.508ZM133.412 266.508C129.317 266.508 125.998 269.731 125.998 273.707L125.998 317.309C125.998 321.285 129.317 324.509 133.412 324.509L150.584 324.509C154.678 324.508 157.997 321.285 157.998 317.309L157.998 273.707C157.998 269.731 154.678 266.508 150.584 266.508L133.412 266.508ZM61.1808 218.509C57.2139 218.509 53.9979 221.743 53.9979 225.732L53.9983 317.285C53.9985 321.274 57.2142 324.508 61.1809 324.508L77.8152 324.509C81.7819 324.509 84.9978 321.274 84.998 317.285L84.9976 225.732C84.9976 221.743 81.7817 218.508 77.8148 218.508L61.1808 218.509Z" fill="white"/></svg>\
-                    </div>\
-                    <div id="btn-throw-prev" class="arrow left">\uc0\u9664 </div> <div id="btn-throw-next" class="arrow right">\u9654 </div> </main>\
-            </div>\
-        </section>\
-\
-        <section id="page-press" class="page">\
-            <div class="container">\
-                <header>\
-                    <p class="title">\uc0\u48520 \u50504 \u54620  \u47564 \u53372  \u45572 \u47476 \u44592 </p>\
-                    <h1 id="counter-press" class="counter">0</h1>\
-                    <div class="logo">\
-                        <svg><use href="#logo-svg"></use></svg> </div>\
-                </header>\
-                <main>\
-                    <div class="background-text">PRESS</div>\
-                    <div id="pen-container">\
-                        <svg id="pen-svg-unpressed" class="active" width="335" height="649" viewBox="0 0 335 649" fill="none" xmlns="http://www.w3.org/2000/svg">\
-                            <path d="M78 173.141C78 159.808 88.8163 149 102.159 149H310.841C324.184 149 335 159.808 335 173.141L335 1525.86C335 1539.19 324.184 1550 310.841 1550H102.159C88.8162 1550 78 1539.19 78 1525.86L78 173.141Z" fill="white"/>\
-                            <path id="pen-clicker" d="M162 32.2807C162 14.4526 172.809 0 186.143 0L226.857 0C240.191 0 251 14.4525 251 32.2806V188.719C251 206.547 240.191 221 226.857 221H186.143C172.809 221 162 206.547 162 188.719V32.2807Z" fill="white"/>\
-                            <path d="M0 285.163C0 271.818 10.6269 261 23.7358 261H31.2643C44.3732 261 55 271.818 55 285.163L55 745.837C55 759.182 44.3731 770 31.2642 770H23.7357C10.6268 770 0 759.182 0 745.837L0 285.163Z" fill="white"/>\
-                        </svg>\
-                        <svg id="pen-svg-pressed" width="335" height="549" viewBox="0 0 335 549" fill="none" xmlns="http://www.w3.org/2000/svg">\
-                            <path d="M78 73.1407C78 59.8082 88.8163 49 102.159 49L310.841 49C324.184 49 335 59.8082 335 73.1407L335 1425.86C335 1439.19 324.184 1450 310.841 1450H102.159C88.8162 1450 78 1439.19 78 1425.86L78 73.1407Z" fill="white"/>\
-                            <path d="M162 32.2807C162 14.4526 172.809 0 186.143 0L226.857 0C240.191 0 251 14.4525 251 32.2806V188.719C251 206.547 240.191 221 226.857 221H186.143C172.809 221 162 206.547 162 188.719V32.2807Z" fill="white"/>\
-                            <path d="M0 185.163C0 171.818 10.6269 161 23.7358 161H31.2643C44.3732 161 55 171.818 55 185.163L55 645.837C55 659.182 44.3731 670 31.2642 670H23.7357C10.6268 670 0 659.182 0 645.837L0 185.163Z" fill="white"/>\
-                        </svg>\
-                    </div>\
-                    <div id="btn-press-prev" class="arrow left">\uc0\u9664 </div> <div id="btn-press-next" class="arrow right">\u9654 </div> </main>\
-            </div>\
-        </section>\
-\
-        <section id="page-touch" class="page">\
-            <div class="container">\
-                <header>\
-                    <p class="title">\uc0\u48520 \u50504 \u54620  \u47564 \u53372  \u53552 \u53944 \u47532 \u44592 </p>\
-                    <h1 id="counter-touch" class="counter">0</h1>\
-                    <div class="logo">\
-                        <svg><use href="#logo-svg"></use></svg> </div>\
-                </header>\
-                <main>\
-                    <div class="background-text">TOUCH</div>\
-                    <div id="touch-grid"></div>\
-                    <div id="btn-touch-prev" class="arrow left">\uc0\u9664 </div> </main>\
-            </div>\
-        </section>\
-    </div>\
-\
-    <script src="script.js"></script>\
-</body>\
-</html>}
+    // =========================================
+    // 1. 데이터 관리 (통합 저장소)
+    // =========================================
+    const STORAGE_KEY = 'anxietyInteractionData';
+
+    // 오늘 날짜 문자열 반환 (YYYY-MM-DD)
+    const getTodayDateString = () => new Date().toISOString().split('T')[0];
+
+    // 데이터 불러오기 (없거나 날짜가 지났으면 초기화)
+    const loadData = () => {
+        const today = getTodayDateString();
+        const rawData = localStorage.getItem(STORAGE_KEY);
+        let data = null;
+
+        if (rawData) {
+            try {
+                data = JSON.parse(rawData);
+            } catch (e) {
+                console.error("데이터 파싱 오류", e);
+            }
+        }
+
+        // 데이터가 없거나, 저장된 날짜가 오늘과 다르면 리셋 (자정 초기화 로직)
+        if (!data || data.date !== today) {
+            
+            let previousHistory = [];
+            if (data && data.history) {
+                previousHistory = data.history;
+            }
+            
+            if (data && data.date && data.date !== today) {
+                const totalCount = Object.values(data.counts).reduce((a, b) => a + b, 0);
+                if (totalCount > 0) {
+                    previousHistory.push({ date: data.date, count: totalCount });
+                }
+            }
+
+            data = {
+                date: today,
+                counts: {
+                    spin: 0,
+                    throw: 0,
+                    press: 0,
+                    touch: 0
+                },
+                history: previousHistory
+            };
+            
+            saveData(data);
+        }
+        
+        if (data.history) {
+             data.history.sort((a, b) => new Date(b.date) - new Date(a.date));
+             data.history = data.history.slice(0, 4);
+        }
+
+        return data;
+    };
+
+    // 데이터 저장하기
+    const saveData = (data) => {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    };
+
+    // 특정 활동 카운트 증가 함수
+    const incrementCount = (type) => {
+        const data = loadData(); 
+        
+        if (data.counts[type] !== undefined) {
+            data.counts[type]++;
+        } else {
+            data.counts[type] = 1;
+        }
+
+        saveData(data);
+        updateAllDisplays(data); 
+    };
+
+    // =========================================
+    // 2. UI 업데이트
+    // =========================================
+    const counterIds = {
+        spin: 'counter-spin',
+        throw: 'counter-throw',
+        press: 'counter-press',
+        touch: 'counter-touch'
+    };
+
+    const dailyCounterContainer = document.getElementById('daily-counter-container');
+
+    const updateAllDisplays = (data) => {
+        if (!data) data = loadData();
+
+        for (const [type, id] of Object.entries(counterIds)) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.textContent = data.counts[type] || 0;
+            }
+        }
+
+        if (dailyCounterContainer) {
+            dailyCounterContainer.innerHTML = '';
+            
+            const todayTotal = Object.values(data.counts).reduce((a, b) => a + b, 0);
+            const todayEl = document.createElement('div');
+            todayEl.className = 'daily-count-item';
+            todayEl.style.fontWeight = 'bold'; 
+            todayEl.textContent = `${data.date}: ${todayTotal}`;
+            dailyCounterContainer.appendChild(todayEl);
+
+            if (data.history) {
+                data.history.forEach(item => {
+                    const el = document.createElement('div');
+                    el.className = 'daily-count-item';
+                    el.style.opacity = '0.7'; 
+                    el.textContent = `${item.date}: ${item.count}`;
+                    dailyCounterContainer.appendChild(el);
+                });
+            }
+        }
+    };
+
+    // =========================================
+    // 3. 페이지 전환 네비게이션
+    // =========================================
+    document.getElementById('btn-spin-next').addEventListener('click', () => { body.className = 'show-throw'; });
+    document.getElementById('btn-throw-prev').addEventListener('click', () => { body.className = 'show-spin'; });
+    document.getElementById('btn-throw-next').addEventListener('click', () => { body.className = 'show-press'; });
+    document.getElementById('btn-press-prev').addEventListener('click', () => { body.className = 'show-throw'; });
+    document.getElementById('btn-press-next').addEventListener('click', () => { body.className = 'show-touch'; });
+    document.getElementById('btn-touch-prev').addEventListener('click', () => { body.className = 'show-press'; });
+
+    // =========================================
+    // 4. 인터랙션 로직
+    // =========================================
+
+    // --- SPIN: 클립 회전 ---
+    const initRotatableElement = (containerId) => {
+        const container = document.getElementById(containerId);
+        let isDragging = false, lastAngle = 0, totalRotation = 0, angularVelocity = 0, animationId;
+        let sessionRotationIdx = 0; 
+        let center; 
+        const getCenter = (element) => { const rect = element.getBoundingClientRect(); return { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 }; };
+        
+        container.addEventListener('mousedown', (e) => { 
+            e.preventDefault(); isDragging = true; container.style.cursor = 'grabbing'; container.classList.remove('idle-animation'); 
+            if (animationId) cancelAnimationFrame(animationId); 
+            center = getCenter(container);
+            lastAngle = Math.atan2(e.clientY - center.y, e.clientX - center.x) * (180 / Math.PI); 
+        });
+
+        window.addEventListener('mousemove', (e) => { 
+            if (!isDragging) return; 
+            const currentAngle = Math.atan2(e.clientY - center.y, e.clientX - center.x) * (180 / Math.PI); 
+            let deltaAngle = currentAngle - lastAngle; 
+            if (deltaAngle > 180) deltaAngle -= 360; 
+            else if (deltaAngle < -180) deltaAngle += 360; 
+            
+            angularVelocity = deltaAngle; 
+            totalRotation += deltaAngle; 
+            lastAngle = currentAngle; 
+            
+            container.style.transform = `translate(-50%, -50%) rotate(${totalRotation}deg)`; 
+            checkRotation();
+        });
+
+        window.addEventListener('mouseup', () => { 
+            if (!isDragging) return; 
+            isDragging = false; container.style.cursor = 'grab'; 
+            animateRotation(); 
+        });
+
+        function checkRotation() {
+            const currentIdx = Math.floor(Math.abs(totalRotation) / 360);
+            if (currentIdx > sessionRotationIdx) {
+                incrementCount('spin'); 
+                sessionRotationIdx = currentIdx;
+            }
+        }
+
+        function animateRotation() {
+            angularVelocity *= 0.98; 
+            totalRotation += angularVelocity; 
+            container.style.transform = `translate(-50%, -50%) rotate(${totalRotation}deg)`; 
+            checkRotation();
+            if (Math.abs(angularVelocity) > 0.1) { 
+                animationId = requestAnimationFrame(animateRotation); 
+            } else { 
+                container.classList.add('idle-animation'); 
+            }
+        }
+    };
+
+    // --- THROW: 자 튕기기 ---
+    const initThrowableElement = (containerId, areaId) => {
+        const container = document.getElementById(containerId); 
+        const area = document.getElementById(areaId); 
+        let isDragging = false, animationId; 
+        let pos = { x: 0, y: 0 }, velocity = { x: 0, y: 0 }, rotation = 0, angularVelocity = 0; 
+        let lastMouse = { x: 0, y: 0 };
+        
+        container.addEventListener('mousedown', (e) => { 
+            e.preventDefault(); isDragging = true; container.style.cursor = 'grabbing'; container.classList.remove('idle-animation'); 
+            if (animationId) cancelAnimationFrame(animationId); 
+            const rect = container.getBoundingClientRect(); 
+            const areaRect = area.getBoundingClientRect(); 
+            const offsetX = e.clientX - rect.left; 
+            const offsetY = e.clientY - rect.top; 
+            
+            window.onmousemove = (moveEvent) => { 
+                if (!isDragging) return; 
+                pos.x = moveEvent.clientX - areaRect.left - offsetX; 
+                pos.y = moveEvent.clientY - areaRect.top - offsetY; 
+                velocity.x = moveEvent.clientX - lastMouse.x; 
+                velocity.y = moveEvent.clientY - lastMouse.y; 
+                lastMouse = { x: moveEvent.clientX, y: moveEvent.clientY }; 
+                
+                const parentCenter = { x: area.offsetWidth / 2, y: area.offsetHeight / 2 }; 
+                const elementCenter = { x: container.offsetWidth / 2, y: container.offsetHeight / 2}; 
+                container.style.transform = `translate(${pos.x - parentCenter.x + elementCenter.x}px, ${pos.y - parentCenter.y + elementCenter.y}px) rotate(${rotation}deg)`; 
+            }; 
+        });
+        
+        window.addEventListener('mouseup', () => { 
+            if (!isDragging) return; 
+            isDragging = false; container.style.cursor = 'grab'; window.onmousemove = null; 
+            angularVelocity = velocity.x * 0.2; 
+            animate(); 
+        });
+        
+        function animate() {
+            velocity.y += 0.5; velocity.x *= 0.995; velocity.y *= 0.995; angularVelocity *= 0.995; 
+            pos.x += velocity.x; pos.y += velocity.y; rotation += angularVelocity;
+            
+            const bounce = -0.5;
+            const hitboxPadding = 50; 
+            let bounced = false; 
+
+            if (pos.x + container.offsetWidth - hitboxPadding > area.offsetWidth) { 
+                pos.x = area.offsetWidth - (container.offsetWidth - hitboxPadding); 
+                velocity.x *= bounce; bounced = true;
+            } else if (pos.x + hitboxPadding < 0) { 
+                pos.x = -hitboxPadding; 
+                velocity.x *= bounce; bounced = true;
+            }
+            
+            if (pos.y + container.offsetHeight - hitboxPadding > area.offsetHeight) { 
+                pos.y = area.offsetHeight - (container.offsetHeight - hitboxPadding); 
+                if (Math.abs(velocity.y) < 1.5) velocity.y = 0; 
+                else { velocity.y *= bounce; bounced = true; } 
+            } else if (pos.y + hitboxPadding < 0) { 
+                pos.y = -hitboxPadding; 
+                velocity.y *= bounce; bounced = true;
+            }
+            
+            if (bounced) {
+                incrementCount('throw'); 
+            }
+
+            const parentCenter = { x: area.offsetWidth / 2, y: area.offsetHeight / 2 }; 
+            const elementCenter = { x: container.offsetWidth / 2, y: container.offsetHeight / 2};
+            container.style.transform = `translate(${pos.x - parentCenter.x + elementCenter.x}px, ${pos.y - parentCenter.y + elementCenter.y}px) rotate(${rotation}deg)`;
+            
+            if (Math.abs(velocity.x) < 0.1 && Math.abs(velocity.y) < 1 && Math.abs(angularVelocity) < 0.1 && 
+                pos.y + container.offsetHeight - hitboxPadding >= area.offsetHeight - 1) { 
+                cancelAnimationFrame(animationId);
+                container.style.transition = 'transform 0.5s ease-out'; 
+                container.style.transform = `translate(-50%, -50%) rotate(${rotation}deg)`;
+                setTimeout(() => { container.style.transition = ''; container.classList.add('idle-animation'); }, 500);
+                return;
+            }
+            animationId = requestAnimationFrame(animate);
+        }
+    };
+
+    // --- PRESS: 볼펜 누르기 ---
+    const initPressInteraction = (containerId) => {
+        const container = document.getElementById(containerId);
+        const penSvgUnpressed = document.getElementById('pen-svg-unpressed');
+        const penSvgPressed = document.getElementById('pen-svg-pressed');
+        
+        container.addEventListener('click', () => {
+            if (penSvgPressed.classList.contains('active')) return;
+            
+            penSvgUnpressed.classList.remove('active');
+            penSvgPressed.classList.add('active');
+            
+            incrementCount('press'); 
+
+            setTimeout(() => {
+                penSvgPressed.classList.remove('active');
+                penSvgUnpressed.classList.add('active');
+            }, 100); 
+        });
+    };
+
+    // --- TOUCH: 뽁뽁이 터트리기 ---
+    const initTouchInteraction = (gridId) => {
+        const grid = document.getElementById(gridId); 
+        const poppedSvg = `<svg viewBox="0 0 117 117" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M74.0303 30.6318L100.559 15.3164L116.392 42.7402L89.8633 58.0557L116.391 73.3711L100.558 100.795L74.0303 85.4785V116.111H42.3633V85.4805L15.8359 100.797L0.00292969 73.3721L26.5303 58.0557L0.00195312 42.7393L15.835 15.3154L42.3633 30.6309V0H74.0303V30.6318Z" fill="white"/></svg>`;
+        
+        const createParticles = (container) => { 
+            const particleCount = 15; 
+            for (let i = 0; i < particleCount; i++) { 
+                const particle = document.createElement('div'); particle.className = 'particle'; 
+                const angle = Math.random() * Math.PI * 2; 
+                const force = Math.random() * 60 + 30; 
+                const x = Math.cos(angle) * force; const y = Math.sin(angle) * force; 
+                particle.style.setProperty('--x', `${x}px`); particle.style.setProperty('--y', `${y}px`); 
+                container.appendChild(particle); 
+                setTimeout(() => { particle.remove(); }, 500); 
+            } 
+        };
+        
+        const referencePositions = [{cx: 235, cy: 369}, {cx: 329, cy: 527}, {cx: 235, cy: 685}, {cx: 429, cy: 369}, {cx: 523, cy: 527}, {cx: 429, cy: 685}, {cx: 623, cy: 369}, {cx: 717, cy: 527}, {cx: 623, cy: 685}, {cx: 817, cy: 369}, {cx: 911, cy: 527}, {cx: 817, cy: 685}, {cx: 1011, cy: 369}, {cx: 1105, cy: 527}, {cx: 1011, cy: 685}, {cx: 1205, cy: 369}, {cx: 1205, cy: 685}];
+        const minX = 235, maxX = 1205, minY = 369, maxY = 685; 
+        const spanX = maxX - minX, spanY = maxY - minY;
+        const finalPositions = referencePositions.map(p => { return [((p.cx - minX) / spanX) * 100, ((p.cy - minY) / spanY) * 100]; });
+        
+        finalPositions.forEach(pos => {
+            const point = document.createElement('div'); point.className = 'touch-point'; point.style.left = `${pos[0]}%`; point.style.top = `${pos[1]}%`;
+            point.innerHTML = `<div class="circle"></div><div class="popped-shape">${poppedSvg}</div>`;
+            
+            point.addEventListener('click', () => {
+                if (!point.classList.contains('popped')) {
+                    point.classList.add('popped'); 
+                    
+                    incrementCount('touch'); 
+                    createParticles(point);
+                    
+                    // 8초 후에 해당 원만 리셋
+                    setTimeout(() => {
+                        point.classList.remove('popped');
+                    }, 8000);
+                }
+            });
+            grid.appendChild(point);
+        });
+    };
+
+    // =========================================
+    // 5. 초기 실행
+    // =========================================
+    updateAllDisplays();
+
+    initRotatableElement('clip-container');
+    initThrowableElement('ruler-container', 'throw-area');
+    initPressInteraction('pen-container');
+    initTouchInteraction('touch-grid');
+});
